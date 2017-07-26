@@ -1,0 +1,11 @@
+---
+# tasks file for elastalert
+- name: "Copy Elastalert RPM"
+  copy:
+     src: /vagrant/elastalert-0.1.18-1.el7.x86_64.rpm
+     dest: /tmp/elastalert-0.1.18-1.el7.x86_64.rpm
+
+- name: "Install Elastalert RPM"
+  yum:
+     name: /tmp/elastalert-0.1.18-1.el7.x86_64.rpm
+     state: present

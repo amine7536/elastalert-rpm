@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  hosts: test-kitchen
+  roles_path: roles
+  # require_ansible_repo: false
+  require_ansible_omnibus: false
+  require_chef_for_busser: false
+  require_ruby_for_busser: false
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7.3
+    platform: centos
+    driver:
+      synced_folders:
+        - ["build", "/vagrant"]
+
+
+suites:
+  - name: default
