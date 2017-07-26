@@ -1,0 +1,42 @@
+---
+- name: "Add Elastic Repo"
+  yum_repository:
+    name: elasticsearch-5.x
+    file: elasticsearch-5.x
+    description: Elasticsearch repository for 5.x packages
+    baseurl: https://artifacts.elastic.co/packages/5.x/yum
+    gpgcheck: yes
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    enabled: yes
+
+- name: "Install Elasticsearch"
+  yum: name={{ item }} state=present
+  with_items:
+    - java-1.8.0-openjdk
+    - elasticsearch
+
+- name: "Configure Elasticsearch"
+  lineinfile:
+    path: /etc/elasticsearch/jvm.options
+    regexp: '^-Xms2g'
+    line: '-Xms256m'
+
+- name: "Start Elasticsearch"
+  systemd:
+    name: elasticsearch
+    state: started
+
+- name: "Copy Elastalert RPM"
+  copy:
+     src: /vagrant/elastalert-0.1.18-1.el7.x86_64.rpm
+     dest: /tmp/elastalert-0.1.18-1.el7.x86_64.rpm
+
+- name: "Install Elastalert RPM"
+  yum:
+     name: /tmp/elastalert-0.1.18-1.el7.x86_64.rpm
+     state: present
+
+- name: "Start Elastalert"
+  systemd:
+    name: elastalert
+    state: started

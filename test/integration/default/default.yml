@@ -2,4 +2,4 @@
 - name: wrapper playbook for kitchen testing
   hosts: test-kitchen
   roles:
-    - elastalert
+    - elastalert-test

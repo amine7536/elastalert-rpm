@@ -15,6 +15,7 @@ group :integration do
   gem 'test-kitchen', '~> 1.4'
   gem 'kitchen-ansible'
   gem 'kitchen-vagrant'
+  gem 'kitchen-docker'
   gem 'kitchen-inspec'
   gem 'concurrent-ruby', '~> 0.9'
 end

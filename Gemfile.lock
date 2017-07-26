@@ -52,6 +52,8 @@ GEM
     kitchen-ansible (0.47.2)
       net-ssh (>= 3)
       test-kitchen (~> 1.4)
+    kitchen-docker (2.6.0)
+      test-kitchen (>= 1.0.0)
     kitchen-inspec (0.19.0)
       hashie (~> 3.4)
       inspec (>= 0.34.0, < 2.0.0)
@@ -170,6 +172,7 @@ DEPENDENCIES
   concurrent-ruby (~> 0.9)
   inspec
   kitchen-ansible
+  kitchen-docker
   kitchen-inspec
   kitchen-vagrant
   minitest (~> 5.5)

@@ -6,7 +6,7 @@ provisioner:
   name: ansible_playbook
   hosts: test-kitchen
   roles_path: roles
-  # require_ansible_repo: false
+  require_ansible_repo: true
   require_ansible_omnibus: false
   require_chef_for_busser: false
   require_ruby_for_busser: false
@@ -19,7 +19,7 @@ platforms:
     platform: centos
     driver:
       synced_folders:
-        - ["build", "/vagrant"]
+        - [".", "/vagrant"]
 
 
 suites:

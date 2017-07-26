@@ -18,7 +18,7 @@ control 'elastalert-1' do
   describe systemd_service('elastalert') do
     it { should be_installed }
     it { should_not be_enabled }
-    it { should_not be_running }
+    it { should be_running }
   end
 
   describe file('/etc/elastalert/config.yml') do
