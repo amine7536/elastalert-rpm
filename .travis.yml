@@ -11,4 +11,4 @@ before_install:
 - bundle install
 
 script:
-- bundle exec kitchent test all
+- bundle exec kitchen test all
