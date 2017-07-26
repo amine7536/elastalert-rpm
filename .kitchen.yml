@@ -1,6 +1,7 @@
 ---
 driver:
-  name: vagrant
+  name: docker
+  use_sudo: false
 
 provisioner:
   name: ansible_playbook
@@ -17,10 +18,11 @@ verifier:
 platforms:
   - name: centos-7.3
     platform: centos
-    driver:
-      synced_folders:
-        - [".", "/vagrant"]
-
+    driver_config:
+      dockerfile: ./Dockerfile
+      volume: 
+        - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        - $(pwd):/vagrant
 
 suites:
   - name: default
