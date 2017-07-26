@@ -55,4 +55,5 @@ fpm -f \
     --maintainer 'amine.benseddik@gmail.com' \
     --description 'ElastAlert - Easy & Flexible Alerting With Elasticsearch.' \
     --license 'Apache 2.0' \
+    --package $BASEDIR \
     .
