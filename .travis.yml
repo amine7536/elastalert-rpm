@@ -1,0 +1,14 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+before_install:
+- docker pull centos:centos7
+- docker run -v $(pwd):/build -it centos:centos7 /build/build.sh
+- bundle install
+
+script:
+- bundle exec kitchent test all
