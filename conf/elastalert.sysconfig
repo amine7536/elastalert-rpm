@@ -1,0 +1,4 @@
+# This file can be used to set additional options
+# the elastalert process.
+CONFIGFILE="/etc/elastalert/config.yml"
+ARGS="--verbose"
