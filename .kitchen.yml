@@ -19,10 +19,10 @@ platforms:
   - name: centos-7.3
     platform: centos
     driver_config:
-      dockerfile: ./Dockerfile
+      # dockerfile: ./Dockerfile
       volume: 
         - /sys/fs/cgroup:/sys/fs/cgroup:ro
-        - $(pwd):/vagrant
+        - <%=ENV['PWD']%>:/vagrant
 
 suites:
   - name: default
