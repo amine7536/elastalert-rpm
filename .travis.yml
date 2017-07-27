@@ -8,6 +8,7 @@ services:
 before_install:
 - docker pull centos:centos7
 - docker run -v $(pwd):/build -it centos:centos7 /build/build.sh
+- docker build --rm -t local/c7-systemd -f systemd.Dockerfile .
 - bundle install
 
 script:

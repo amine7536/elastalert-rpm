@@ -7,6 +7,7 @@ provisioner:
   name: ansible_playbook
   hosts: test-kitchen
   roles_path: roles
+  ansible_verbose: true
   require_ansible_repo: true
   require_ansible_omnibus: false
   require_chef_for_busser: false
@@ -19,10 +20,12 @@ platforms:
   - name: centos-7.3
     platform: centos
     driver_config:
-      # dockerfile: ./Dockerfile
+      image: local/c7-systemd
+      run_command: /usr/sbin/init
+      port: 22
       volume: 
         - /sys/fs/cgroup:/sys/fs/cgroup:ro
-        - <%=ENV['PWD']%>:/vagrant
+        - <%=ENV['PWD']%>:/build
 
 suites:
   - name: default
