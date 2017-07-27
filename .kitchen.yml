@@ -7,7 +7,6 @@ provisioner:
   name: ansible_playbook
   hosts: test-kitchen
   roles_path: roles
-  ansible_verbose: true
   require_ansible_repo: true
   require_ansible_omnibus: false
   require_chef_for_busser: false
