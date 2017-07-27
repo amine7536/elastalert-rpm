@@ -7,6 +7,7 @@ services:
   - docker
 
 before_install:
+- gem install bundler
 - docker pull centos:centos7
 - docker run -v $(pwd):/build -it centos:centos7 /build/build.sh
 - docker build --rm -t local/c7-systemd -f systemd.Dockerfile .
