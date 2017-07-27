@@ -17,8 +17,6 @@ The build script `build.sh` create a python `virtualenv` to install `elastalert`
 $> docker run -v $(pwd):/build -it centos:centos7 /build/build.sh
 ...
 
-
-
 $> rpm -qp --info /build/elastalert-0.1.18-1.el7.x86_64.rpm
 Name        : elastalert
 Version     : 0.1.18
