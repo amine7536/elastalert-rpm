@@ -5,6 +5,8 @@ Documentation=http://elastalert.readthedocs.io/en/latest
 
 [Service]
 Type=simple
+User=elastalert
+Group=elastalert
 EnvironmentFile=/etc/sysconfig/elastalert
 ExecStart=/usr/share/python/elastalert/bin/elastalert --config $CONFIGFILE $ARGS
 ExecStop=/bin/kill -WINCH ${MAINPID}
