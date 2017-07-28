@@ -16,5 +16,10 @@ rm -f /usr/lib/tmpfiles.d/systemd-nologin.conf;
 VOLUME [ "/sys/fs/cgroup" ]
 VOLUME ["/run"]
 
+RUN yum install -y sudo openssh-server openssh-clients which curl epel-release \
+    && systemctl enable sshd \
+    && yum install -y ansible \
+    && yum clean all
+
 # Start
 CMD ["/usr/sbin/init"]

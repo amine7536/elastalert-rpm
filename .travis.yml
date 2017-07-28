@@ -7,9 +7,8 @@ services:
 
 before_install:
 - gem install bundler
-- docker pull centos:centos7
-- docker run -v $(pwd):/build -it centos:centos7 /build/build.sh
-- docker build --rm -t local/c7-systemd -f systemd.Dockerfile .
+- docker pull pixelfactory/docker-kitchen-c7-systemd:latest
+- docker run -v $(pwd):/build -it pixelfactory/docker-kitchen-c7-systemd:latest /build/build.sh
 - bundle install
 
 script:

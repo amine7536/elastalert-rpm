@@ -19,7 +19,7 @@ platforms:
   - name: centos-7.3
     platform: centos
     driver_config:
-      image: local/c7-systemd
+      image: pixelfactory/docker-kitchen-c7-systemd
       run_command: /usr/sbin/init
       port: 22
       volume: 
