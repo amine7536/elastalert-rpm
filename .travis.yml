@@ -7,9 +7,9 @@ services:
 
 before_install:
 - gem install bundler
+- bundle install
 - docker pull pixelfactory/docker-kitchen-c7-systemd:latest
 - docker run -v $(pwd):/build -it pixelfactory/docker-kitchen-c7-systemd:latest /build/build.sh
-- bundle install
 
 script:
 - bundle exec kitchen test all
