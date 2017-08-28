@@ -10,6 +10,7 @@ before_install:
 - bundle install
 - docker pull pixelfactory/docker-kitchen-c7-systemd:latest
 - docker run -v $(pwd):/build -it pixelfactory/docker-kitchen-c7-systemd:latest /build/build.sh
+- sleep 10
 
 script:
 - bundle exec kitchen test all
