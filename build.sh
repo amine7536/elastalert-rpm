@@ -50,6 +50,10 @@ fpm -f \
     --config-files "/etc/elastalert/config.yml" \
     --config-files "/etc/sysconfig/elastalert" \
     --config-files "/usr/lib/systemd/system/elastalert.service" \
+    --rpm-tag 'Requires(pre): shadow-utils' \
+    --rpm-tag 'Requires(post): systemd' \
+    --rpm-tag 'Requires(preun): systemd' \
+    --rpm-tag 'Requires(postun): systemd, shadow-utils' \
     --before-install $BASEDIR/scripts/preinstall.sh \
     --after-install $BASEDIR/scripts/postinstall.sh \
     --after-remove $BASEDIR/scripts/postuninstall.sh \
