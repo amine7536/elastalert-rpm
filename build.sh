@@ -30,7 +30,7 @@ cp $BASEDIR/conf/elastalert.service $BUILDDIR/usr/lib/systemd/system
 # Virtual Env
 virtualenv $BUILDDIR$INSTALLDIR/elastalert
 $BUILDDIR$INSTALLDIR/elastalert/bin/pip install --upgrade pip
-$BUILDDIR$INSTALLDIR/elastalert/bin/pip install "setuptools>=11.3" "elasticsearch>=5.0.0" "urllib3==1.21.1"
+$BUILDDIR$INSTALLDIR/elastalert/bin/pip install -r $BASEDIR/requirements.txt
 $BUILDDIR$INSTALLDIR/elastalert/bin/pip install "elastalert==$VERSION"
 
 find $BUILDDIR ! -perm -a+r -exec chmod a+r {} \;
