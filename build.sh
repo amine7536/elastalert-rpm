@@ -30,7 +30,7 @@ cp $BASEDIR/conf/elastalert.service $BUILDDIR/usr/lib/systemd/system
 # Virtual Env
 virtualenv $BUILDDIR$INSTALLDIR/elastalert
 $BUILDDIR$INSTALLDIR/elastalert/bin/pip install --upgrade pip
-$BUILDDIR$INSTALLDIR/elastalert/bin/pip install "setuptools>=11.3" "elasticsearch>=5.0.0" "urllib3==1.21.1"
+$BUILDDIR$INSTALLDIR/elastalert/bin/pip install -r $BASEDIR/requirements.txt
 $BUILDDIR$INSTALLDIR/elastalert/bin/pip install "elastalert==$VERSION"
 
 find $BUILDDIR ! -perm -a+r -exec chmod a+r {} \;
@@ -50,6 +50,10 @@ fpm -f \
     --config-files "/etc/elastalert/config.yml" \
     --config-files "/etc/sysconfig/elastalert" \
     --config-files "/usr/lib/systemd/system/elastalert.service" \
+    --rpm-tag 'Requires(pre): shadow-utils' \
+    --rpm-tag 'Requires(post): systemd' \
+    --rpm-tag 'Requires(preun): systemd' \
+    --rpm-tag 'Requires(postun): systemd, shadow-utils' \
     --before-install $BASEDIR/scripts/preinstall.sh \
     --after-install $BASEDIR/scripts/postinstall.sh \
     --after-remove $BASEDIR/scripts/postuninstall.sh \
