@@ -36,7 +36,7 @@ $BUILDDIR$INSTALLDIR/elastalert/bin/pip3 install "elastalert==$VERSION"
 find $BUILDDIR ! -perm -a+r -exec chmod a+r {} \;
 
 cd $BUILDDIR$INSTALLDIR/elastalert
- virtualenv-tools3 --update-path $INSTALLDIR/elastalert
+ virtualenv-tools --update-path $INSTALLDIR/elastalert
 cd -
 
 # Clean up
@@ -56,6 +56,7 @@ fpm -f \
     --rpm-tag 'Requires(postun): systemd, shadow-utils' \
     --before-install $BASEDIR/scripts/preinstall.sh \
     --after-install $BASEDIR/scripts/postinstall.sh \
+    --before-remove $BASEDIR/scripts/preuninstall.sh \
     --after-remove $BASEDIR/scripts/postuninstall.sh \
     --url http://elastalert.readthedocs.io/en/latest \
     --maintainer 'amine.benseddik@gmail.com' \
