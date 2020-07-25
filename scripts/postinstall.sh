@@ -1,1 +1,1 @@
-systemctl daemon-reload
+%systemd_post %{name}.service
