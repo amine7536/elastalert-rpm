@@ -48,7 +48,7 @@ GEM
       thor (~> 0.19)
       toml (~> 0.1)
       train (>= 0.24.0, < 1.0)
-    json (2.1.0)
+    json (2.3.1)
     kitchen-ansible (0.47.2)
       net-ssh (>= 3)
       test-kitchen (~> 1.4)
