@@ -49,5 +49,5 @@ stomp.py == 4.1.21
 texttable == 1.6.1
 thehive4py == 1.6.0
 twilio == 6.0.0
-urllib3 == 1.21.1
+urllib3 == 1.26.5
 wheel == 0.29.0
