@@ -43,7 +43,7 @@ requests == 2.21.0
 requests_oauthlib == 1.2.0
 requests_toolbelt == 0.9.1
 s3transfer == 0.2.0
-setuptools == 28.8.0
+setuptools == 65.5.1
 six == 1.12.0
 stomp.py == 4.1.21
 texttable == 1.6.1
